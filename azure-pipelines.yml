@@ -16,13 +16,18 @@ steps:
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '17'
-    jdkArchitectureOption: 'x64'
-    publishJUnitResults: true
-    testResultsFiles: '**/surefire-reports/TEST-*.xml'
-    goals: 'package'
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '${Build.SourcesDirectory}/target'
+    Contents: '*.jar'
+    TargetFolder: '${Build.ArtifactStagingDirectory}'
 
-- script:
-    ls ${Build.sourceDirectory}
-  displayName: view file after build
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+
+
 
   

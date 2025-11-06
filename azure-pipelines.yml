@@ -21,6 +21,8 @@ steps:
     testResultsFiles: '**/surefire-reports/TEST-*.xml'
     goals: 'package'
 
--script
-  ls ${Build.sourceDireectory}
+- script:
+    ls ${Build.sourceDireectory}
+  displayName: view file after build
+
   

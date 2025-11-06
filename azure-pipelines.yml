@@ -22,7 +22,7 @@ steps:
     goals: 'package'
 
 - script:
-    ls ${Build.sourceDireectory}
+    ls ${Build.sourceDirectory}
   displayName: view file after build
 
   

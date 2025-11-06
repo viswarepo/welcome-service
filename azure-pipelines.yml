@@ -24,8 +24,7 @@ steps:
     sonarQubeRunAnalysis: false
 
 - script: |
-    echo "The source directory is: $(Build.SourcesDirectory)"
-    ls -la $(Build.SourcesDirectory)
+    ls -R $(Build.SourcesDirectory)
   displayName: 'List contents of source directory'
   
 - task: CopyFiles@2

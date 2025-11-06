@@ -16,6 +16,12 @@ steps:
     mavenOptions: '-Xmx3072m'
     javaHomeOption: 'JDKVersion'
     jdkVersionOption: '17'
+
+- script: |
+    echo "The source directory is: $(Build.SourcesDirectory)"
+    ls -la $(Build.SourcesDirectory)
+  displayName: 'List contents of source directory'
+  
 - task: CopyFiles@2
   inputs:
     SourceFolder: '${Build.SourcesDirectory}/target'
